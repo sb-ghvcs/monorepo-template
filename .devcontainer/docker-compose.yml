@@ -1,0 +1,21 @@
+networks:
+  vibe:
+    external: true
+
+services:
+  couchcinema:
+    build:
+      context: ..
+      dockerfile: .devcontainer/Dockerfile
+    volumes:
+      - ~/.ssh:/home/dev/.ssh
+      - ..:/workspace
+      - ../.devcontainer/zshrc:/home/dev/.zshrc
+    ports:
+      - '3000:3000' # Next.js UI
+      - '8000:8000' # FastAPI Server
+    command: ['tail', '-f', '/dev/null']
+    working_dir: /workspace
+    user: dev
+    networks:
+      - vibe

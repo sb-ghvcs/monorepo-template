@@ -1,0 +1,17 @@
+name: Deploy
+
+on:
+  workflow_dispatch:
+
+jobs:
+  deploy_server:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v4
+
+  deploy_ui:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v4

@@ -1,0 +1,16 @@
+[tool.poetry]
+name = "server"
+version = "0.1.0"
+description = ""
+authors = ["Shivansh Bakshi <work@shivanshbakshi.dev>"]
+readme = "README.md"
+
+[tool.poetry.dependencies]
+python = ">=3.11,<3.14" # Limitation enforced by pyinstaller
+
+[tool.poetry.scripts]
+server = "main:start"
+
+[build-system]
+requires = ["poetry-core"]
+build-backend = "poetry.core.masonry.api"

@@ -1,0 +1,3 @@
+npx lint-staged
+python scripts/update_version.py
+git add package.json services/ui/package.json services/server/pyproject.toml

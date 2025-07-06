@@ -1,0 +1,21 @@
+[MASTER]
+ignore=CVS, node_modules, .next, build, dist, __pycache__, .mypy_cache
+ignore-paths=^services/server/dist/.*$,
+             ^dist/.*$
+disable=C0114, C0115, C0116, W0511, W0603, R0903, W0718
+
+[FORMAT]
+max-line-length=120
+
+[DESIGN]
+max-args=20
+max-locals=20
+max-returns=15
+max-branches=12
+max-statements=50
+max-parents=7
+max-attributes=20
+max-public-methods=20
+
+[INDENTATION]
+indent-string='    '

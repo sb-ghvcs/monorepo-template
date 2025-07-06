@@ -1,0 +1,70 @@
+{
+  "name": "couchcinema",
+  "dockerComposeFile": "docker-compose.yml",
+  "service": "couchcinema",
+  "workspaceFolder": "/workspace",
+  "customizations": {
+    "vscode": {
+      "settings": {
+        "terminal.integrated.defaultProfile.linux": "zsh",
+        "terminal.integrated.profiles.linux": {
+          "zsh": {
+            "path": "/bin/zsh"
+          }
+        },
+        "python.defaultInterpreterPath": "/home/dev/.local/bin/python",
+        "python.formatting.provider": "black",
+        "python.formatting.blackArgs": ["--line-length", "120"],
+        "python.linting.enabled": true,
+        "python.linting.pylintEnabled": true,
+        "python.linting.flake8Enabled": true,
+        "python.linting.mypyEnabled": true,
+        "editor.formatOnSave": true,
+        "editor.codeActionsOnSave": {
+          "source.fixAll.eslint": true
+        },
+        "eslint.workingDirectories": ["services/ui"],
+        "typescript.preferences.importModuleSpecifier": "relative",
+        "files.associations": {
+          "*.toml": "toml"
+        }
+      },
+      "extensions": [
+        "ms-python.python",
+        "ms-python.mypy-type-checker",
+        "ms-python.vscode-pylance",
+        "ms-python.black-formatter",
+        "tamasfe.even-better-toml",
+        "gruntfuggly.todo-tree",
+        "dbaeumer.vscode-eslint",
+        "esbenp.prettier-vscode",
+        "bradlc.vscode-tailwindcss",
+        "csstools.postcss",
+        "formulahendry.auto-rename-tag",
+        "christian-kohler.path-intellisense",
+        "dsznajder.es7-react-js-snippets",
+        "ms-vscode.vscode-typescript-next",
+        "naumovs.color-highlight",
+        "wix.vscode-import-cost",
+        "ms-vscode.vscode-json",
+        "yzhang.markdown-all-in-one",
+        "ms-vscode.vscode-typescript-next",
+        "bradlc.vscode-tailwindcss"
+      ]
+    }
+  },
+  "remoteUser": "dev",
+  "postCreateCommand": "npm install",
+  "postStartCommand": "echo 'Development environment ready!'",
+  "forwardPorts": [3000, 8000],
+  "portsAttributes": {
+    "3000": {
+      "label": "Next.js UI",
+      "onAutoForward": "notify"
+    },
+    "8000": {
+      "label": "FastAPI Server",
+      "onAutoForward": "notify"
+    }
+  }
+}

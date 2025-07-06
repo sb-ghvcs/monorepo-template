@@ -1,0 +1,20 @@
+# Set up oh-my-zsh
+export ZSH="/home/dev/.oh-my-zsh"
+
+# Set name of the theme to load.
+ZSH_THEME="robbyrussell"
+
+# Which plugins would you like to load?
+plugins=(
+  git
+)
+
+source $ZSH/oh-my-zsh.sh
+
+# Add npm global bin to PATH
+export PATH="/home/dev/.npm-global/bin:$PATH"
+
+# Add poetry to PATH (if installed locally)
+export PATH="/home/dev/.local/bin:$PATH"
+
+eval $(ssh-agent -s) && ssh-add ~/.ssh/id_ed25519

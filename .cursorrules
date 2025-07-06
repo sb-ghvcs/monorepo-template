@@ -1,0 +1,69 @@
+{
+  "monorepo": true,
+  "root": {
+    "style": {
+      "eslint": ".eslintrc.js",
+      "prettier": "prettier.config.mjs",
+      "python": {
+        "flake8": ".flake8",
+        "pylint": ".pylintrc",
+        "mypy": "mypy.ini"
+      }
+    },
+    "quality": {
+      "require_tests": true,
+      "require_type_annotations": true,
+      "require_lint_clean": true,
+      "require_format_clean": true
+    }
+  },
+  "projects": [
+    {
+      "name": "server",
+      "path": "services/server",
+      "language": "python",
+      "style": {
+        "flake8": "../../.flake8",
+        "pylint": "../../.pylintrc",
+        "mypy": "../../mypy.ini"
+      },
+      "quality": {
+        "require_tests": true,
+        "require_type_annotations": true,
+        "require_lint_clean": true,
+        "require_format_clean": true
+      }
+    },
+    {
+      "name": "ui",
+      "path": "services/ui",
+      "language": "typescript",
+      "framework": "nextjs",
+      "style": {
+        "eslint": "../../.eslintrc.js",
+        "prettier": "../../prettier.config.mjs"
+      },
+      "quality": {
+        "require_tests": true,
+        "require_type_annotations": true,
+        "require_lint_clean": true,
+        "require_format_clean": true
+      },
+      "special": {
+        "shadcn_ui": {
+          "ignore_eslint_rules": true,
+          "note": "Do not enforce ESLint rules for shadcn UI components. All other code must follow the root ESLint config."
+        }
+      }
+    }
+  ],
+  "global_rules": [
+    "All code must pass linting and formatting checks before being committed.",
+    "All new code must include or update relevant tests.",
+    "Type annotations are required for all Python and TypeScript code.",
+    "Frontend code must use functional components and hooks (no class components).",
+    "Backend code must use type hints and pass mypy checks.",
+    "Respect the monorepo structure and configuration inheritance.",
+    "Do not modify shadcn UI components or enforce linting on them."
+  ]
+} 
